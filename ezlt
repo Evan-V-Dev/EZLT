@@ -1,0 +1,30 @@
+#!/bin/bash
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -i | --install )           echo "Enter the package you would like
+to install"
+                                   read -p 'Package Name: '
+                                   sudo apt-get install $REPLY
+                                ;;
+        -r | --remove )    
+                                   echo "Enter the package you would like
+to remove"
+                                   read -p 'Package Name: '
+                                   sudo apt-get remove $REPLY
+                                ;;
+        -h | --help )           echo "EZL 1.0 HELP
+INFO: EZL is a easier way to install packeges for linux.
+
+ARGUMENTS:
+-h - Help Menu
+--help - Help Menu
+-i - Install a package
+--install - Install a package
+-r - Removes a package
+--remove - Removes a package"
+                                ;;
+        * )                     echo "Invalid argument; $1, try ezl -h"
+    esac
+    shift
+done
